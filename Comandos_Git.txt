@@ -1,0 +1,89 @@
+# GIT
+
+A sigla SHA significa Secure Hash Algorithm, é um conjunto de funções hash criptográficas projetadas pela NSA (National Securit Agence) dos EUA.
+
+A encriptação gera um conjunto de caracteres identificador de 40 caracteres únicos. Cada arquivo tem um conjunto.
+
+É uma forma curta de representar um arquivo
+
+Esses 40 caracteres são uma forma eficiente para saber se o arquivo teve alterações ou não.
+
+Usando função do git pra retornar o sha do conteúdo:
+
+echo ‘conteudo’ | git hash-object —stdin
+
+Usando o openssl sh1 pra retornar o sha:
+
+echo -e ‘conteudo’ | openssl sha1  dessa maneira vai retornar o sha só do conteúdo e não do objeto do git
+
+echo -e ‘blob 9|0conteudo’ | openssl sha1  dessa formar retorna o sha do objeto (igual ao retornado usando o git
+
+## Blobs
+
+Os arquivos ficam guardados dentro do objeto chamado blob que contém metadados (tipo do objeto, tamanho da string, tamnho do arquivo...).
+
+## Tree
+
+Armazena blobs.
+
+Também contém metadados, guarda o nome do arquivo (diferente do blob). Elas podem tanto apontar para blobs quanto para outras árvores.
+
+Objeto recursivo
+
+Elas tem também um sha1 dos seus metadados. Se algo mudar dentro do que a árvore guarda, o sha vai mudar também.
+
+Você pode inserir qualquer tipo de conteúdo no GIT, e ele lhe dará de volta uma chave que você pode usar para recuperar o conteúdo de volta em qualquer momento.
+
+## Commit
+
+Objeto mais importante, ele é o objeto que irá juntar tudo.
+
+Aponta para uma tree, parent, autor, mensagem e timestamp.
+
+O commit vai dar significado para os arquivos e as pastas (através do autor e da mensagem), levando o horário e a data de quando foi criado (timestamp).
+
+Os commits também possuem sha1, isso significa que se algo for alterado dentro de uma blob todos os shas se alteram em cadeia (pois os metadados mudam). Por isso ele é muito confiável.
+
+## Chaves SSH e Tokens
+
+Chave SSH: forma de estabelecer uma conexão segura e encriptada entre duas máquinas.
+
+Tokens de acesso pessoal: é a outra forma de estabelecer uma conexão segura, com validade para cada token.
+
+## Iniciando o GIT e criando um commit
+
+- git init:
+- git add
+- git commit
+
+Quando o git ainda não conhece o arquivo, ou seja, acabou de criar um arquivo, ele é Untracked.
+
+Quando usamos o comando git add a gente move o arquivo que estava como untracked para o staged (área na qual ele aguarda para ser feito algo com ele).
+
+Arquivos Unmodified é aquele que não foi editado ainda (tem um sha1). A partir do momento em que ele é editado ele se torna modifed (recebe um novo sha1). Se rodarmos o git add novamente nesse arquivo (agora modified) ele vai direto para o staged.
+
+Se eu removo um arquivo Unmodified, esse arquivo retorna pro Untracked.
+
+Quando os arquivos estão no staged eles estão esperando para virar um commit. Virando commit, esses arquivos voltam pro unmodified e o ciclo recomeça.
+
+Servidor - Remote repository
+
+Ambiente de desenvolvimento - Working directory, staging area, local repository.
+
+Não há uma passagem automática das alterações feitas no ambiente de desenvolvimento para o servidor.
+
+Tudo que está no repositório local está em commit, aquilo que não estiver não poderá ir para um repositório remoto.
+
+git add nomeArquivo
+
+git add * adiciona pro stage todas as mudanças
+
+git add . adiciona todos os arquivos para stage area
+
+git commit -m “” move tudo do stage pro repositório local passando uma mensagem
+
+git push origin master pra subir o código
+
+git pull origin master descer código
+
+git clone url clona um repositório
