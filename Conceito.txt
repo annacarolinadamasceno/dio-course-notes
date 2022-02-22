@@ -1,0 +1,11 @@
+# Introdução ao GIT
+
+O GIT é um gerenciador de versões. Criado pelo Linus Torvalds (criador do Linux). Funciona em parte parecido com o google drive. Ele é bem diferente do GitHub.
+
+Benefícios de aprender essas ferramentas:
+
+1. Controle de versão
+2. Armazenamento em nuvem
+3. Trabalho em equipe
+4. Melhoria do código
+5. Reconhecimento
