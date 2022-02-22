@@ -1,0 +1,25 @@
+## Comandos básicos
+
+É um CLI, ou seja, é por linha de comando não tem uma interface gráfica como os GUIs.
+
+WINDOWS
+
+comando para listar: dir
+
+levar para a base do comando diretório c: cd/
+
+ir para pasta nomedapasta: cd nomedapasta
+
+retroceder um nível na navegação: cd..
+
+limpar a tela: cls
+
+função de autocompletar: tab
+
+criar uma pasta: mkdir nomedapasta
+
+echo > nomearquivo.tipoarquivo : vai verificar se já há um arquivo com esse nome e se estiver tudo certo vai criar esse arquivo
+
+comando del só deleta arquivos
+
+comando rmdir nomepasta /S /Q vai deletar o diretório e tudo que há dentro.
